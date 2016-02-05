@@ -41,7 +41,7 @@ boolean dir_toggle=false;
 
 byte pos[1000]; int p=0; int q=0;
 
-double kp=30,ki=15,kd=0.18;
+double kp=2, ki=0.125, kd=0.01;
 double input=0, output=0, setpoint=0;
 PID myPID(&input, &output, &setpoint,kp,ki,kd, DIRECT);
 volatile long encoder0Pos = 0;
