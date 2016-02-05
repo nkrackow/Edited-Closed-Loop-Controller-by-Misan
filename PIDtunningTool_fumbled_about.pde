@@ -21,10 +21,9 @@ import processing.serial.*;
 
 Serial myPort;      // The serial port
 
-float kp=3, ki=1, kd=0.01;
+float kp=2, ki=0.125, kd=0.01;
 void setup() {
   size(1200, 800);
-  // create a font with the third font available to the system:
   PFont myFont = createFont(PFont.list()[2], 14);
   textFont(myFont);
   frameRate(1);
@@ -54,17 +53,16 @@ void draw() {
     String s="";
     while(myPort.available()>0) s+=char(myPort.read()); 
     
-    println(s);
     
     Scanner sc = new Scanner(s);
     
     float xscale=(600/((float(Steps)/float(Speed))/0.002))*(float(13)/float(9));
-    println(xscale);
     
     int x=0; 
     while(sc.hasNextInt()) {
       point((x++)*xscale, 800-2.4*sc.nextInt());
     }
+    delay(500);
   }
   else{
     strokeWeight(1);
@@ -90,8 +88,6 @@ void draw() {
     delay(200);
     String s="";
     while(myPort.available()>0) s+=char(myPort.read()); 
-    
-    println(s);
     
     Scanner sc = new Scanner(s);
     
