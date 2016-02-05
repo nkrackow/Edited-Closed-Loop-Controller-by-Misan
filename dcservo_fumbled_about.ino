@@ -9,7 +9,7 @@
   */
 
 
-int backlash=5;  //Amount of backlash to try and compensate for in encoder positions
+int backlash=0;  //Amount of backlash to try and compensate for in encoder positions
 
 
 /* This one is not using any PinChangeInterrupt library */
